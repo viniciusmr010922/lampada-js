@@ -1,0 +1,80 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lampada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    var quebrada = false;
+    // MUDA LAMPADA
+    function mudaLampada(valor) {
+
+        if (valor == 1) {
+            arquivo = "assets/lampada-apagada.png";
+            chave = "assets/switch-off.png";
+            // colocar para apenas 1 click para apagar e ascender a lampada
+            interruptor.setAttribute("onclick", "mudaLampada(2)")
+        }
+
+        if (valor == 2) {
+            arquivo = "assets/lampada-acesa.png";
+            chave = "assets/switch-on.png";
+            // colocar para apenas 1 click para apagar e ascender a lampada
+            interruptor.setAttribute("onclick", "mudaLampada(1)")
+
+        }
+
+        if (valor == 3) {
+            arquivo = "assets/lampada-quebrada.png";
+
+        }
+        document.getElementById("interruptor").src = chave
+
+        if (!quebrada) {
+            document.getElementById("lampada").src = arquivo
+            if (valor == 3) {
+                quebrada = true;
+            }
+        }
+
+
+    }
+</script>
+
+<body>
+    <main>
+        <div class="lampada">
+            <h1>Utilize o interruptor para <br> acender a lâmpada</h1>
+        </div>
+
+        <p>CUIDADO! NÃO TOQUE NA LÂMPADA!</p>
+
+        <img src="assets/lampada-apagada.png" alt="" id="lampada" onclick="mudaLampada(3)">
+
+        <div class="switch">
+
+            <img src="assets/switch-off.png" alt="" id="interruptor" onclick="mudaLampada(2)"> </div>
+
+        <div class="trocar-lampada">
+
+            <ul>
+                <li><a href="">trocar-lampada</a></li>
+            </ul>
+
+            <!-- <a href="index.html"></a> <button>Trocar Lampada</button></a> -->
+
+
+        </div>
+
+
+
+
+    </main>
+
+
+
+</body>
+
+</html>
